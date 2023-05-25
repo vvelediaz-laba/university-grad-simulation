@@ -1,0 +1,14 @@
+6.100A - Introduction to Computer Science Programming in Python: A
+6.1900 - Introduction to Low-level Programming in C and Assembly: A
+6.120A - Discrete Mathematics and Proof for Computer Science: A
+6.1210 - Introduction to Algorithms: A
+18.C06 - Linear Algebra and Optimization: A
+6.UAT - Oral Communication: A
+6.3700 - Introduction to Probability: A
+6.1910 - Computation Structures: A
+6.2000 - Electrical Circuits: Modeling and Design of Physical Systems: B
+6.3100 - Dynamical System Modeling and Control Design: D
+6.9000 - Engineering for Impact: A
+6.5931 - Hardware Architecture for Deep Learning: A
+
+GPA: 3.67

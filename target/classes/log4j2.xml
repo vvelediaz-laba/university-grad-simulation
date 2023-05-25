@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n" />
+        </Console>
+        <File name="FileAppender" fileName="logs/universitygrad.log">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="FileAppender" />
+        </Root>
+        <Logger name="com.solvd.universitygradsimulation.UniversityGradSimulation" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Logger name="com.solvd.universitygradsimulation.Ceremony" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Logger name="com.solvd.universitygradsimulation.GraduateUtils" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Logger name="com.solvd.universitygradsimulation.Transcript" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Logger name="com.solvd.universitygradsimulation.Alumni" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Logger name="com.solvd.universitygradsimulation.Staff" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+        <Logger name="com.solvd.laba.filestringutils.UniqueWords" level="INFO">
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+    </Loggers>
+</Configuration>
