@@ -169,9 +169,9 @@ public class UniversityGradSimulation {
         Student amy = new Student("Amy Johnson", "002", 21, economics, amyTranscript, DegreeType.BACHELOR);
         Student sarah = new Student("Sarah Hernandez", "003", 19, biochemistry, sarahTranscript, DegreeType.BACHELOR, ExtracurricularActivity.DANCE_TEAM);
 
-        bobTranscript.writeToFile("bob_transcript.txt");
-        amyTranscript.writeToFile("amy_transcript.txt");
-        sarahTranscript.writeToFile("sarah_transcript.txt");
+        bobTranscript.writeToFile("logs/bob_transcript.txt");
+        amyTranscript.writeToFile("logs/amy_transcript.txt");
+        sarahTranscript.writeToFile("logs/sarah_transcript.txt");
 
         FacultyMember david = new FacultyMember("David Johnson", 45, new Department("Computer Science"), FacultyRank.PROFESSOR, 100000, true);
         FacultyMember kevin = new FacultyMember("Kevin Sanchez", 50, new Department("Mathematics"), 85000, true);
