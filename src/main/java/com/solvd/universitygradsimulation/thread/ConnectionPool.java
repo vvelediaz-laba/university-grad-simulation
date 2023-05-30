@@ -1,35 +1,46 @@
 package com.solvd.universitygradsimulation.thread;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class ConnectionPool {
+    private static ConnectionPool connectionPool;
+
     private final int poolSize;
     private final BlockingQueue<Connection> connections;
+    private final Set<Connection> initializedConnections;
 
     private ConnectionPool(int poolSize) {
         this.poolSize = poolSize;
         this.connections = new LinkedBlockingQueue<>(poolSize);
-        this.initializePool();
+        this.initializedConnections = new HashSet<>();
     }
 
-    public static ConnectionPool create(int poolSize) {
-        return new ConnectionPool(poolSize);
+    public synchronized static ConnectionPool getInstance(int poolSize) {
+        if (connectionPool == null) {
+            connectionPool = new ConnectionPool(poolSize);
+        }
+        return connectionPool;
     }
 
-    public Connection getConnection() throws InterruptedException {
-        return connections.take();
+    public synchronized Connection getConnection() throws InterruptedException {
+        Connection connection = connections.poll();
+        if (connection == null) {
+            if (initializedConnections.size() < poolSize) {
+                connection = createConnection();
+                initializedConnections.add(connection);
+            } else {
+                connection = connections.take();
+            }
+        }
+        return connection;
     }
 
     public void releaseConnection(Connection connection) {
-        if (connection != null) {
+        if (connection != null && initializedConnections.contains(connection)) {
             connections.offer(connection);
-        }
-    }
-
-    private void initializePool() {
-        for (int i = 0; i < poolSize; i++) {
-            connections.offer(createConnection());
         }
     }
 
@@ -38,4 +49,5 @@ public class ConnectionPool {
         return new Connection();
     }
 }
+
 

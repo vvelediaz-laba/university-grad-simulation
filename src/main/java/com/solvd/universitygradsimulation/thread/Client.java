@@ -10,8 +10,7 @@ import java.util.concurrent.Executors;
 public class Client {
     public static void main(String[] args) {
         final Integer POOL_SIZE = 5;
-        ConnectionPool connectionPool = ConnectionPool.create(POOL_SIZE);
-
+        ConnectionPool connectionPool = ConnectionPool.getInstance(POOL_SIZE);
         ExecutorService executorService = Executors.newFixedThreadPool(7);
 
         List<CompletableFuture<Connection>> connectionFutures = new ArrayList<>();
